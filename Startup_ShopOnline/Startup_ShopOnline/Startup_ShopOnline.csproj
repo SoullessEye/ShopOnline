@@ -46,6 +46,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -175,8 +181,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BUS\ShopOnlineBUS.cs" />
+    <Compile Include="Models\Generated\Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -188,9 +201,20 @@
     <Content Include="Asset\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\fonts\font-slider.css" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Asset\images\1.jpg" />
+    <Content Include="Asset\images\10.jpg" />
+    <Content Include="Asset\images\11.jpg" />
+    <Content Include="Asset\images\12.jpg" />
+    <Content Include="Asset\images\2.jpg" />
+    <Content Include="Asset\images\3.jpg" />
+    <Content Include="Asset\images\4.jpg" />
+    <Content Include="Asset\images\5.jpg" />
+    <Content Include="Asset\images\6.jpg" />
+    <Content Include="Asset\images\7.jpg" />
+    <Content Include="Asset\images\8.jpg" />
+    <Content Include="Asset\images\9.jpg" />
     <Content Include="Asset\images\close.png" />
     <Content Include="Asset\images\discover-curved-32px.png" />
-    <Content Include="Asset\images\iphone-12-pro-max.jpg" />
     <Content Include="Asset\images\loading.gif" />
     <Content Include="Asset\images\logo.jpg" />
     <Content Include="Asset\images\logofooter.jpg" />
@@ -199,20 +223,14 @@
     <Content Include="Asset\images\main-banner2-1903x600.png" />
     <Content Include="Asset\images\main-banner3-1903x600.png" />
     <Content Include="Asset\images\next.png" />
-    <Content Include="Asset\images\oppo-reno-5.jpg" />
     <Content Include="Asset\images\paypal-curved-32px.png" />
     <Content Include="Asset\images\prev.png" />
-    <Content Include="Asset\images\redmi-note-10.jpg" />
-    <Content Include="Asset\images\samsung-galaxy.jpg" />
     <Content Include="Asset\images\sub-banner1.jpg" />
     <Content Include="Asset\images\sub-banner2.png" />
     <Content Include="Asset\images\sub-banner3.png" />
     <Content Include="Asset\images\sub-banner4.jpg" />
     <Content Include="Asset\images\sub-banner5.jpg" />
     <Content Include="Asset\images\visa-curved-32px.png" />
-    <Content Include="Asset\images\xiaomi-mi-10t_.jpg" />
-    <Content Include="Asset\images\xiaomi-poco.jpg" />
-    <Content Include="Asset\images\xiaomi-redmi-note.jpg" />
     <Content Include="Asset\js\bootstrap.min.js" />
     <Content Include="Asset\js\jquery-2.1.1.js" />
     <Content Include="Asset\js\photo-gallery.js" />
@@ -220,10 +238,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Generated\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Asset\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -259,6 +282,8 @@
     <Content Include="Asset\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
+    <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -323,6 +348,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
