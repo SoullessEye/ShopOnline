@@ -18,5 +18,15 @@ namespace Startup_ShopOnline.Models.BUS
             var db = new ShopOnlineConnectionDB();
             return db.SingleOrDefault<SanPham> ("select * from SanPham where MaSanPham = @0", a);
         }
+        public static IEnumerable<SanPham> Top4New()
+        {
+            var db = new ShopOnlineConnectionDB();
+            return db.Query<SanPham>("select Top 4 * from SanPham where GhiChu = '0'");
+        }
+        public static IEnumerable<SanPham> TopHot()
+        {
+            var db = new ShopOnlineConnectionDB();
+            return db.Query<SanPham>("select Top 4 * from SanPham where LuotView > 0");
+        }
     }
 }

@@ -205,18 +205,18 @@
     <Content Include="Asset\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\fonts\font-slider.css" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Asset\images\1.jpg" />
-    <Content Include="Asset\images\10.jpg" />
-    <Content Include="Asset\images\11.jpg" />
-    <Content Include="Asset\images\12.jpg" />
-    <Content Include="Asset\images\2.jpg" />
-    <Content Include="Asset\images\3.jpg" />
-    <Content Include="Asset\images\4.jpg" />
-    <Content Include="Asset\images\5.jpg" />
-    <Content Include="Asset\images\6.jpg" />
-    <Content Include="Asset\images\7.jpg" />
-    <Content Include="Asset\images\8.jpg" />
-    <Content Include="Asset\images\9.jpg" />
+    <Content Include="Asset\images\01.jpg" />
+    <Content Include="Asset\images\010.jpg" />
+    <Content Include="Asset\images\011.jpg" />
+    <Content Include="Asset\images\012.jpg" />
+    <Content Include="Asset\images\02.jpg" />
+    <Content Include="Asset\images\03.jpg" />
+    <Content Include="Asset\images\04.jpg" />
+    <Content Include="Asset\images\05.jpg" />
+    <Content Include="Asset\images\06.jpg" />
+    <Content Include="Asset\images\07.jpg" />
+    <Content Include="Asset\images\08.jpg" />
+    <Content Include="Asset\images\09.jpg" />
     <Content Include="Asset\images\close.png" />
     <Content Include="Asset\images\discover-curved-32px.png" />
     <Content Include="Asset\images\loading.gif" />
@@ -342,6 +342,8 @@
     <Content Include="Views\NhaSanXuat\Index.cshtml" />
     <Content Include="Views\Shared\_LoaiSanPham.cshtml" />
     <Content Include="Views\LoaiSanPham\Index.cshtml" />
+    <Content Include="Views\Shared\_Top4New.cshtml" />
+    <Content Include="Views\Shared\_TopHot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
