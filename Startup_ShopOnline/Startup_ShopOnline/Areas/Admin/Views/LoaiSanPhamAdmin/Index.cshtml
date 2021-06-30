@@ -1,8 +1,56 @@
-﻿
+﻿@model IEnumerable<ShopOnlineConnection.LoaiSanPham>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
 
-<h2>Index loai san pham</h2>
+<style>
 
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: auto;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: hotpink;
+        color: white;
+    }
+
+    h2 {
+        margin-left: 250px;
+    }
+</style>
+
+<h2>Quản Lý Loại Sản Phẩm</h2>
+
+<table>
+    <tr>
+        <th>Mã Nhà Sản Xuất</th>
+        <th>Tên Nhà Sản Xuất</th>
+        <th>Tình Trạng</th>
+        <th colspan="2">
+            <a href="@Url.Action("Create", "LoaiSanPhamAdmin") "><img src="~/Asset/images/AddNSX.png" /></a>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaLoaiSanPham</td>
+            <td>@item.TenLoaiSanPham</td>
+            <td>@item.TinhTrang</td>
+            <td><a href="@Url.Action("Edit","LoaiSanPhamAdmin", new {id =@item.MaLoaiSanPham})"><img src="~/Asset/images/edit.png" /></a></td>
+            <td><a href="@Url.Action("XoaTamThoi", "LoaiSanPhamAdmin", new {id = item.MaLoaiSanPham })"><img src="~/Asset/images/delete.png" /></a></td>
+        </tr>
+    }
+
+</table>

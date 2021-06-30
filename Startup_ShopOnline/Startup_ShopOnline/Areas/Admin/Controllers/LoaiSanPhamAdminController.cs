@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShopOnlineConnection;
+using Startup_ShopOnline.Models.BUS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,8 @@ namespace Startup_ShopOnline.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPhamAdmin
         public ActionResult Index()
         {
-            return View();
+            var db = LoaiSanPhamBUS.DanhSachAdmin();
+            return View(db);
         }
 
         // GET: Admin/LoaiSanPhamAdmin/Details/5
@@ -28,12 +31,12 @@ namespace Startup_ShopOnline.Areas.Admin.Controllers
 
         // POST: Admin/LoaiSanPhamAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LoaiSanPham lsp)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                LoaiSanPhamBUS.InsertLSP(lsp);
                 return RedirectToAction("Index");
             }
             catch
@@ -43,19 +46,42 @@ namespace Startup_ShopOnline.Areas.Admin.Controllers
         }
 
         // GET: Admin/LoaiSanPhamAdmin/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var db = LoaiSanPhamBUS.ChiTietAdmin(id);
+            return View(db);
         }
 
         // POST: Admin/LoaiSanPhamAdmin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(String id, LoaiSanPham lsp)
         {
             try
             {
                 // TODO: Add update logic here
+                LoaiSanPhamBUS.EditLSP(id, lsp);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult XoaTamThoi(String id)
+        {
+            var db = LoaiSanPhamBUS.ChiTietAdmin(id);
+            return View(db);
+        }
 
+        // POST: Admin/LoaiSanPhamAdmin/Delete Tam Thoi/5
+        [HttpPost]
+        public ActionResult XoaTamThoi(String id, LoaiSanPham lsp)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                lsp.TinhTrang = "1";
+                LoaiSanPhamBUS.EditLSP(id, lsp);
                 return RedirectToAction("Index");
             }
             catch
