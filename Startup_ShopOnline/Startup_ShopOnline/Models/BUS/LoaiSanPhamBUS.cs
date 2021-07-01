@@ -16,7 +16,7 @@ namespace Startup_ShopOnline.Models.BUS
         public static IEnumerable<SanPham> ChiTiet(String id)
         {
             var db = new ShopOnlineConnectionDB();
-            return db.Query<SanPham>("select * from SanPham where MaLoaiSanPham = '"+id+"'");
+            return db.Query<SanPham>("select * from SanPham where MaLoaiSanPham = '"+id+ "' AND TinhTrang = '0'");
         }
 
 

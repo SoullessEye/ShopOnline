@@ -1,0 +1,82 @@
+﻿@model ShopOnlineConnection.SanPham
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<script src="~/Areas/AssetAdmin/dist/js/product/previewFile.js"></script>
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Edit", "SanPhamAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<table style="width:70% ;margin-left: 300px; background:none;">
+    <tr>
+        <td>Mã Sản Phẩm</td>
+        <td> <input style="width: 300px;float:left; " maxlength="11" type="text" name="MaSanPham" required readonly value="@Model.MaSanPham" /></td>
+        <td rowspan="9">
+            <img id="target" class="img" src="~/Asset/images/@Model.Hinhchinh" alt="your image" style="float: right; width: 320px; height: 300px;" required />
+        </td>
+    </tr>
+    <tr>
+        <td>Mã Loại Sản Phẩm</td>
+        <td>
+            @Html.DropDownList("MaLoaiSanPham", null, new { @style = "float:left; width: 300px; background:pink;height:30px;" })
+        </td>
+    </tr>
+    <tr>
+        <td>Tên Sản Phẩm</td>
+        <td> <input style="width: 300px;float:left;" type="text" name="TenSanPham" maxlength="11" required value="@Model.TenSanPham" /></td>
+    </tr>
+    <tr>
+        <td>Hinh Chinh</td>
+        <td><input type="File" id="file_Hinh" name="HinhChinh" onchange="previewFile();" style="float: left" /></td>
+    </tr>
+    <tr>
+        <td>Giá</td>
+        <td> <input style="width: 300px; float:left;" type="number" name="Gia" required value="@Model.Gia" /></td>
+    </tr>
+    <tr>
+        <td>Tình Trạng</td>
+        <td> @*<input style="width: 300px; float:left;" type="number" name="TinhTrang" required />*@
+             <select id="country" style="width:30%; background-color: white" name="TinhTrang" required>
+                 @if (Model.TinhTrang == "1")
+                 {
+                     <option value="0">Chưa Khóa</option>
+                     <option value="1" selected>Đã Khóa</option>
+                 }
+                 else
+                 {
+                     <option value="0" selected>Chưa Khóa</option>
+                     <option value="1">Đã Khóa</option>
+                 }
+
+             </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Ghi Chú</td>
+        <td> <input style="width: 300px;float:left;" type="text" name="GhiChu" required value="@Model.GhiChu" /></td>
+    </tr>
+    <tr>
+        <td>Nhà Sản Xuất</td>
+        <td>
+            @Html.DropDownList("MaNhaSanXuat", null, new { @style = "float:left; width: 300px; background:pink ;height:30px;" })
+
+        </td>
+    </tr>
+    <tr>
+
+        <td style="width: 300px;">Cấu Hình</td>
+        <td colspan="2"><textarea class="ckeditor" name="CauHinh" style="width: 300px; height: 150px; max-width: 100px; max-height: 600px; background:white;" rows="4" cols="30">@Model.Cauhinh</textarea></td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <input style="height: 40px; width: 300px;   margin-left:32%;
+	 background:#016ABC;color: #fff;border: 1px solid #eee;border-radius: 20px;box-shadow: 5px 5px 5px #eee;"
+                   type="submit" name="btn_ThemDienThoai" value="Xác Nhận Chỉnh Sửa" />
+        </td>
+    </tr>
+</table>
+}
+

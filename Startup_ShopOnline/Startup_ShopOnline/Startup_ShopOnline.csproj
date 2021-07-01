@@ -413,6 +413,7 @@
     <Content Include="Areas\AssetAdmin\dist\js\custom.js" />
     <Content Include="Areas\AssetAdmin\dist\js\custom.min.js" />
     <Content Include="Areas\AssetAdmin\dist\js\pages\dashboards\dashboard1.js" />
+    <Content Include="Areas\AssetAdmin\dist\js\product\previewFile.js" />
     <Content Include="Areas\AssetAdmin\dist\js\sidebarmenu.js" />
     <Content Include="Areas\AssetAdmin\dist\js\waves.js" />
     <Content Include="Asset\css\bootstrap.min.css" />
@@ -733,6 +734,9 @@
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\XoaTamThoi.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
