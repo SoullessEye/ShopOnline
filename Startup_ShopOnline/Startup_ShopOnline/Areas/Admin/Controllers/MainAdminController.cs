@@ -8,6 +8,7 @@ namespace Startup_ShopOnline.Areas.Admin.Controllers
 {
     public class MainAdminController : Controller
     {
+        [Authorize(Roles = "Admin")]
         // GET: Admin/MainAdmin
         public ActionResult Index()
         {
